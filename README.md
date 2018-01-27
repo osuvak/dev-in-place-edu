@@ -3,6 +3,7 @@ Educational resources utilizing "dev-in-place" paradigms
 
 Author : Onder Suvak
 
+
 ## Citing dev-in-place
 
 If a research group uses this framework, I would like to kindly request them to cite the following.

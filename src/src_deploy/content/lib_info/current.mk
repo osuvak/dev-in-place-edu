@@ -8,6 +8,6 @@
 #  * Please do not remove this header.
 #  * */
 
-# DIR_LIB_INFO_CURRENT := OpSu132_b64_work
-DIR_LIB_INFO_CURRENT := OpSu132_b32_deploy
+DIR_LIB_INFO_CURRENT := OpSu132_b64_work
+# DIR_LIB_INFO_CURRENT := OpSu132_b32_deploy
 

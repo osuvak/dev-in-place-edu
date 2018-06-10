@@ -11,7 +11,7 @@
 
 #include "prng_static_ctor.hh"
 
-// #define USE_OPENMP
+#define USE_OPENMP
 
 void
 compute_pi_approx

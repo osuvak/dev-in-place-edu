@@ -21,6 +21,16 @@ private:
   static PRNG_COMMON obj_;
   
 public:
+  PRNG_Static  () = delete;
+  ~PRNG_Static () = delete;
+  
+  PRNG_Static ( const PRNG_Static &  other ) = delete;
+  PRNG_Static (       PRNG_Static && other ) = delete;
+  
+  PRNG_Static &
+  operator= ( PRNG_Static other ) = delete;
+  
+public:
   
   /*
    * Below : Perfect forwarding static functions with variadic templates (C++11 style)

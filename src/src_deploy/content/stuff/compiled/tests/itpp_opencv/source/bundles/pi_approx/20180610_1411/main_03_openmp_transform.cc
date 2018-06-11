@@ -12,6 +12,7 @@
 #include "prng_static_ctor.hh"
 
 #define USE_OPENMP
+#define USE_TRANSFORM_FOR_POWERING
 
 void
 compute_pi_approx
@@ -29,6 +30,8 @@ main (void)
   int    noExpo = 8;
   
   vec v_expo = linspace( limitL , limitH , noExpo );
+  
+#ifndef USE_TRANSFORM_FOR_POWERING
   std::vector<unsigned int> noMC;
   noMC.reserve( noExpo );
   
@@ -39,6 +42,18 @@ main (void)
       [&](const double &expo) 
         { noMC.push_back( static_cast<unsigned int>( pow( 10.0 , expo ) ) ); }
     );
+#else
+  std::vector<unsigned int> noMC( noExpo , 0.0 );
+  
+  std::transform
+    ( 
+      v_expo._data() , 
+      v_expo._data() + noExpo ,
+      noMC.begin() , 
+      [](const double expo) 
+        { return static_cast<unsigned int>( pow( 10.0 , expo ) ); }
+    );
+#endif
     
   std::vector<double> vec_pi_approx;
   vec_pi_approx.reserve( noMC.size() );
@@ -77,6 +92,8 @@ compute_pi_approx
   auto   center = std::make_pair( (double) 0.5 , (double) 0.5 );
   double radius = 0.5;
   
+  vec v_trialsMC( *(noMC.rbegin()) );
+  
   auto fh = 
       [&]( double & number )
         { 
@@ -90,9 +107,7 @@ compute_pi_approx
           else
             number = 0.0;
         };
-  
-  vec v_trialsMC( *(noMC.rbegin()) );
-  
+        
   tic();
 #ifndef USE_OPENMP
   std::for_each

@@ -185,6 +185,8 @@ clean : force_look
 	
 include $(HOME)/dev_in_place/makefiles/assigner/makefile_lowermost_kdev.mk
 	
+.NOTPARALLEL:
+
 help : force_look
 	@echo ""
 	@echo "RECIPES"

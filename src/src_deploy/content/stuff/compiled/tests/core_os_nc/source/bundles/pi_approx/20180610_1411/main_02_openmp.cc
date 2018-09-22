@@ -103,7 +103,7 @@ compute_pi_approx
   
   vec v_trialsMC( *(noMC.rbegin()) );
   
-  tic();
+//   tic();
 #ifndef USE_OPENMP
   std::for_each
     ( 
@@ -119,8 +119,8 @@ compute_pi_approx
       fh( v_trialsMC[ii] );
   }
 #endif
-  toc_print();
-  std::cout << std::endl;
+//   toc_print();
+//   std::cout << std::endl;
   
   v_trialsMC = cumsum( v_trialsMC );
   std::for_each

@@ -17,7 +17,6 @@ PATH_LINK:=
 
 DIR_ABS_LIBS := $(HOME)/dev_in_place_content/lib_info/$(DIR_LIB_INFO_CURRENT)/libs
 
-include $(DIR_ABS_LIBS)/config_lib_matlab_r2015a_b64.mk
 include $(DIR_ABS_LIBS)/config_lib_itpp_04.03.01_20150330_1447.mk
 include $(DIR_ABS_LIBS)/config_lib_opencv_02.04.10_20150510_2323.mk
 include $(DIR_ABS_LIBS)/config_lib_fftw_03.03.04_20141128_1922.mk

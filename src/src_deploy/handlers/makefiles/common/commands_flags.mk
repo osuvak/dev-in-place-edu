@@ -14,6 +14,7 @@ CXX    := g++
 MEX    := mex
 
 OCTAVE_MEX := mkoctfile --mex
+# OCTAVE_MEX := runmkoctfile --mex
 
 AR      := ar
 ARFLAGS := crvs

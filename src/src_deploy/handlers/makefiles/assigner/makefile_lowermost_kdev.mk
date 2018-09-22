@@ -2,7 +2,7 @@
 #  * This file is part of the "dev-in-place" repository located at:
 #  * https://github.com/osuvak/dev-in-place
 #  * 
-#  * Copyright (C) 2017  Onder Suvak
+#  * Copyright (C) 2017-2018  Onder Suvak
 #  * 
 #  * For licensing information check the above url.
 #  * Please do not remove this header.
@@ -28,9 +28,11 @@ prepkdev : cleankdev force_look
 cleankdev : force_look
 	@echo ""
 	@echo "Clean - dir  - *.kdev*"
-	@find . -iname "*.kdev*"  -type d -exec rm -rf "{}" \;
+# 	@find . -iname "*.kdev*"  -type d -exec rm -rf "{}" \;
+	@find . -iname "*.kdev*"  -type d -print0 | xargs -0 rm -rf --
 	@echo "Clean - dir  - *kdev*"
-	@find . -iname  "*kdev*"  -type d -exec rm -rf "{}" \;
+# 	@find . -iname  "*kdev*"  -type d -exec rm -rf "{}" \;
+	@find . -iname  "*kdev*"  -type d -print0 | xargs -0 rm -rf --
 	@echo "Clean - file - *.kdev*"
 	@find . -iname "*.kdev*"  -type f -delete
 	@echo "Clean - file - *.kdev_*"
